@@ -13,6 +13,7 @@ permissions:
   contents: read
 
 jobs:
+
   test-and-build:
     runs-on: ubuntu-latest
 
@@ -43,3 +44,42 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/cicd-python-app:latest .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/cicd-python-app:latest
+
+  deploy:
+    needs: test-and-build
+
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    runs-on: [self-hosted, Windows, X64]
+
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Pull Latest Image
+        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cicd-python-app:latest
+
+      - name: Deploy Container
+        shell: pwsh
+        run: |
+          $existing = docker ps -aq --filter "name=^cicd-app$"
+
+          if ($existing) {
+              docker rm -f cicd-app
+          }
+
+          docker run -d --restart unless-stopped --name cicd-app -p 5000:5000 ${{ secrets.DOCKERHUB_USERNAME }}/cicd-python-app:latest
+
+      - name: Verify Deployment
+        shell: pwsh
+        run: |
+          Start-Sleep -Seconds 5
+          curl.exe -f http://localhost:5000/health
+
+          if ($LASTEXITCODE -ne 0) {
+              docker logs cicd-app
+              exit 1
+          }
