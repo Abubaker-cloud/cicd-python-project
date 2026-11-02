@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "Abubaker-cloud/cicd-python-project",
+  "pipelineDirectory": "cicd-python-project",
+  "workspaceDirectory": "cicd-python-project\\cicd-python-project",
+  "repositories": {
+    "Abubaker-cloud/cicd-python-project": {
+      "repositoryPath": "cicd-python-project\\cicd-python-project",
+      "lastRunOn": "11/02/2026 12:17:00 +05:30"
+    }
+  },
+  "lastRunOn": "11/02/2026 12:17:00 +05:30"
+}
