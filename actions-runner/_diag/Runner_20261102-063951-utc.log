@@ -122,3 +122,17 @@
 [2026-11-02 06:39:51Z INFO RunnerServer] EstablishVssConnection
 [2026-11-02 06:39:51Z INFO RunnerServer] Establish connection with 60 seconds timeout.
 [2026-11-02 06:39:51Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2026-11-02 06:39:53Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-11-02 06:39:53Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-11-02 06:39:53Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-11-02 06:39:53Z INFO BrokerMessageListener] VssConnection created
+[2026-11-02 06:39:53Z INFO Terminal] WRITE LINE: 
+[2026-11-02 06:39:53Z INFO Terminal] WRITE LINE: 
+[2026-11-02 06:39:53Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\Abubaker\cicd-python-project\actions-runner\.credentials_rsaparams
+[2026-11-02 06:39:53Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\Abubaker\cicd-python-project\actions-runner\.credentials_rsaparams
+[2026-11-02 06:39:56Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2026-11-02 06:39:56Z WARN GitHubActionsService] Retrieving an AAD auth token took a long time (3.0292687 seconds)
+[2026-11-02 06:39:57Z INFO BrokerMessageListener] Session created.
+[2026-11-02 06:39:57Z INFO Terminal] WRITE LINE: Current runner version: '2.338.0'
+[2026-11-02 06:39:57Z INFO Terminal] WRITE LINE: 2026-11-02 06:39:57Z: Listening for Jobs
+[2026-11-02 06:39:57Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
